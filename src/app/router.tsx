@@ -37,14 +37,14 @@ export const createAppRouter = (queryClient: QueryClient) =>
             ErrorBoundary: AppRootErrorBoundary,
             children: [
                 {
-                    path: paths.graduation.chole.root.path,
+                    path: paths.graduation.chloe.root.path,
                     lazy: () =>
-                        import('./routes/graduation/chole').then(convert(queryClient)),
+                        import('./routes/graduation/chloe').then(convert(queryClient)),
                 },
                 {
-                    path: paths.graduation.chole.submit.path,
+                    path: paths.graduation.chloe.submit.path,
                     lazy: () =>
-                        import('./routes/graduation/chole/submit').then(
+                        import('./routes/graduation/chloe/submit').then(
                             convert(queryClient),
                         ),
                 },

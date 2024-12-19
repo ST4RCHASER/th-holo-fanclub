@@ -8,14 +8,14 @@ export const paths = {
             path: '/graduation',
             getHref: () => '/graduation',
         },
-        chole: {
+        chloe: {
             root: {
-                path: '/graduation/chole',
-                getHref: () => '/graduation/chole',
+                path: '/graduation/chloe',
+                getHref: () => '/graduation/chloe',
             },
             submit: {
-                path: '/graduation/chole/submit',
-                getHref: () => '/graduation/chole/submit',
+                path: '/graduation/chloe/submit',
+                getHref: () => '/graduation/chloe/submit',
             }
         },
         fanuna: {

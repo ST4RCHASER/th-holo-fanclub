@@ -19,16 +19,16 @@ const SubmitMessageRoute = () => {
     const [bg, setBg] = useState('');
 
     const clearSavedMessage = () => {
-        localStorage.setItem(addPrefix('chole', 'savedRTValue'), '');
-        localStorage.setItem(addPrefix('chole', 'savedNameValue'), '');
-        localStorage.setItem(addPrefix('chole', 'savedDrawing'), '{"lines":[]}');
+        localStorage.setItem(addPrefix('chloe', 'savedRTValue'), '');
+        localStorage.setItem(addPrefix('chloe', 'savedNameValue'), '');
+        localStorage.setItem(addPrefix('chloe', 'savedDrawing'), '{"lines":[]}');
     }
     const handleWriteableSave = async (message: string, image: string) => {
         // Save message
         let url = '';
         if (image) {
             const file = await upload.mutateAsync({
-                body: [base64ToPngFile(image, 'chole-attachment-' + new Date().toISOString() + '.png')]
+                body: [base64ToPngFile(image, 'chloe-attachment-' + new Date().toISOString() + '.png')]
             })
             if (file) {
                 url = file[0];
@@ -37,7 +37,7 @@ const SubmitMessageRoute = () => {
         submit.mutate({
             body: {
                 type: 'Writing',
-                talent: 'chole',
+                talent: 'chloe',
                 name: recipient,
                 drawImage: '',
                 image: url,
@@ -50,7 +50,7 @@ const SubmitMessageRoute = () => {
         let url = '';
         let bgUrl = '';
         if (image) {
-            const file = base64ToPngFile(image, 'chole-draw-' + new Date().toISOString() + '.png');
+            const file = base64ToPngFile(image, 'chloe-draw-' + new Date().toISOString() + '.png');
             const fileList = await upload.mutateAsync({
                 body: [file]
             })
@@ -59,7 +59,7 @@ const SubmitMessageRoute = () => {
             }
         }
         if (background) {
-            const bgFile = base64ToPngFile(background, 'chole-draw-bg-' + new Date().toISOString() + '.png');
+            const bgFile = base64ToPngFile(background, 'chloe-draw-bg-' + new Date().toISOString() + '.png');
             const bgFileList = await upload.mutateAsync({
                 body: [bgFile]
             })
@@ -70,7 +70,7 @@ const SubmitMessageRoute = () => {
         submit.mutate({
             body: {
                 type: 'Drawing',
-                talent: 'chole',
+                talent: 'chloe',
                 name: recipient,
                 image: bgUrl,
                 drawImage: url,
@@ -82,7 +82,7 @@ const SubmitMessageRoute = () => {
 
     useEffect(() => {
         const loadSave = () => {
-            const savedRTValue = localStorage.getItem(addPrefix('chole', 'savedNameValue'));
+            const savedRTValue = localStorage.getItem(addPrefix('chloe', 'savedNameValue'));
             if (savedRTValue) {
                 setRecipient(savedRTValue);
             }
@@ -104,7 +104,7 @@ const SubmitMessageRoute = () => {
                         Thanks for participating in the project. We are no longer accepting new messages.
                     </div>
                     <div>
-                        <a href="/graduation/chole" className="text-blue-500 text-lg">Back to message board</a>
+                        <a href="/graduation/chloe" className="text-blue-500 text-lg">Back to message board</a>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@ const SubmitMessageRoute = () => {
     }
     return (
         <>
-            <Head description="Submit message to chole" />
+            <Head description="Submit message to chloe" />
             <div>
                 <img src={bg} alt="" className='fixed -z-20 w-screen h-screen blur-3xl top-0 left-0' />
             </div>
@@ -135,20 +135,20 @@ const SubmitMessageRoute = () => {
                             <Label htmlFor="recipient" className='text-sm'>You name</Label>
                             <Input id="recipient" placeholder="Enter your name" onChange={(e) => {
                                 setRecipient(e.target.value)
-                                localStorage.setItem(addPrefix('chole', 'savedNameValue'), e.target.value);
+                                localStorage.setItem(addPrefix('chloe', 'savedNameValue'), e.target.value);
                             }} value={recipient} />
                         </div>
-                        <Writeable prefix='chole' onSave={handleWriteableSave} />
+                        <Writeable prefix='chloe' onSave={handleWriteableSave} />
                     </TabsContent>
                     <TabsContent value="draw">
                         <div className="mx-auto px-4 py-4 mb-4">
                             <Label htmlFor="recipient" className='text-sm'>You name</Label>
                             <Input id="recipient" placeholder="Enter your name" onChange={(e) => {
                                 setRecipient(e.target.value)
-                                localStorage.setItem(addPrefix('chole', 'savedNameValue'), e.target.value);
+                                localStorage.setItem(addPrefix('chloe', 'savedNameValue'), e.target.value);
                             }} value={recipient} />
                         </div>
-                        <Drawable prefix='chole' onSave={handleDrawableSave} onUpdate={setBg} />
+                        <Drawable prefix='chloe' onSave={handleDrawableSave} onUpdate={setBg} />
                     </TabsContent>
                 </Tabs>
             </div>
