@@ -10,9 +10,10 @@ import { addPrefix } from '@/utils/string';
 type DrawableProps = {
     prefix?: string;
     onSave: (image: string, background: string) => void;
+    onUpdate?: (image: string) => void;
 }
 
-export const Drawable = ({ prefix, onSave }: DrawableProps) => {
+export const Drawable = ({ prefix, onSave, onUpdate }: DrawableProps) => {
     const preSetColors = ['#444444', '#9b59b6', '#3498db', '#2ecc71', '#1abc9c', '#f1c40f', '#e67e22', '#e73c61'];
     const [color, setColor] = useState('#444444');
     const [customColor, setCustomColor] = useState('#444444');
@@ -81,7 +82,7 @@ export const Drawable = ({ prefix, onSave }: DrawableProps) => {
                 </div>
             </div>
 
-            <div className="text-center text-4xl font-bold py-8 flex justify-start gap-2">
+            <div className="text-center text-4xl font-bold py-8 flex justify-between gap-2 px-8">
                 <div className='border w-8 h-8 rounded-full border-gray-300 flex justify-center items-center overflow-hidden'>
                     <div style={{
                         overflow: 'hidden',
@@ -132,11 +133,15 @@ export const Drawable = ({ prefix, onSave }: DrawableProps) => {
                 imgSrc={background}
                 onChange={(x) => {
                     localStorage.setItem(addPrefix(prefix, 'savedDrawing'), x.getSaveData());
+                    if (onUpdate) {
+                        // @ts-expect-error - canvasRef is not null
+                        onUpdate(x.getDataURL());
+                    }
                 }}
                 saveData={localStorage.getItem(addPrefix(prefix, 'savedDrawing')) || undefined}
             />
         </div>
-        <div className='flex justify-end gap-4 py-4'>
+        <div className='flex justify-end gap-4 py-4 px-4'>
             <div className='flex justify-start w-full'>
                 <Button variant="secondary" onClick={() => {
                     const input = document.createElement('input');

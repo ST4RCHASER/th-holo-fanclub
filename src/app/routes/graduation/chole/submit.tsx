@@ -16,6 +16,7 @@ const SubmitMessageRoute = () => {
     const [recipient, setRecipient] = useState('');
     const submit = useSubmitBoard();
     const upload = useUploadImages();
+    const [bg, setBg] = useState('');
 
     const clearSavedMessage = () => {
         localStorage.setItem(addPrefix('chole', 'savedRTValue'), '');
@@ -112,7 +113,13 @@ const SubmitMessageRoute = () => {
     return (
         <>
             <Head description="Submit message to chole" />
-            <div className="w-full items-center bg-white">
+            <div>
+                <img src={bg} alt="" className='fixed -z-20 w-screen h-screen blur-3xl top-0 left-0' />
+            </div>
+            <div>
+                <img src="https://m1r.ai/b6zX.jpg" alt="" className={`fixed -z-10 w-screen h-screen blur-3xl top-0 left-0 duration-700 transition-all ${tabValue === 'typing' ? 'opacity-100' : 'opacity-0'}`} />
+            </div>
+            <div className="w-full items-center bg-white rounded">
                 <div className="text-center text-4xl font-bold py-8">
                     {tabValue === 'typing' ? 'Type a message' : 'Draw a message'} to
                 </div>
@@ -141,7 +148,7 @@ const SubmitMessageRoute = () => {
                                 localStorage.setItem(addPrefix('chole', 'savedNameValue'), e.target.value);
                             }} value={recipient} />
                         </div>
-                        <Drawable prefix='chole' onSave={handleDrawableSave} />
+                        <Drawable prefix='chole' onSave={handleDrawableSave} onUpdate={setBg} />
                     </TabsContent>
                 </Tabs>
             </div>
