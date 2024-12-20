@@ -123,7 +123,7 @@ const SubmitMessageRoute = () => {
     const stringToTextNewLine = (text: string) => {
         return text.split('\n').map((str, index) => {
             return (
-                <div key={index}>
+                <div key={index} className='break-all'>
                     {str}
                 </div>
             )
@@ -203,7 +203,7 @@ const SubmitMessageRoute = () => {
                                 This is preview of your message before submitting
                             </DialogDescription>
                         </DialogHeader>
-                        <div className="border-8 border-red-300 rounded-md p-4 shadow-xl">
+                        <div className="border-8 border-red-300 rounded-md p-4 shadow-xl overflow-auto max-h-[80vh]">
                             {
                                 finalSave?.name && <div>
                                     <div className="text-xl font-bold">
