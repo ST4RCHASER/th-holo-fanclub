@@ -49,14 +49,14 @@ export const createAppRouter = (queryClient: QueryClient) =>
                         ),
                 },
                 {
-                    path: paths.graduation.fanuna.root.path,
+                    path: paths.graduation.fauna.root.path,
                     lazy: () =>
-                        import('./routes/graduation/fanuna').then(convert(queryClient)),
+                        import('./routes/graduation/fauna').then(convert(queryClient)),
                 },
                 {
-                    path: paths.graduation.fanuna.submit.path,
+                    path: paths.graduation.fauna.submit.path,
                     lazy: () =>
-                        import('./routes/graduation/fanuna/submit').then(
+                        import('./routes/graduation/fauna/submit').then(
                             convert(queryClient),
                         ),
                 },

@@ -22,3 +22,12 @@ export type User = Entity<{
     username: string;
     role: 'ADMIN' | 'USER';
 }>;
+
+export type SubmitData = {
+    name: string;
+    message: string;
+    image: string;
+    drawImage: string;
+    type: string;
+    talent: string;
+}

@@ -44,15 +44,15 @@ const SubmitMessageRoute = () => {
     const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
 
     const clearSavedMessage = () => {
-        localStorage.setItem(addPrefix('chloe', 'savedRTValue'), '');
-        localStorage.setItem(addPrefix('chloe', 'savedNameValue'), '');
-        localStorage.setItem(addPrefix('chloe', 'savedDrawing'), '{"lines":[]}');
+        localStorage.setItem(addPrefix('fauna', 'savedRTValue'), '');
+        localStorage.setItem(addPrefix('fauna', 'savedNameValue'), '');
+        localStorage.setItem(addPrefix('fauna', 'savedDrawing'), '{"lines":[]}');
     }
     const doSubmit = async () => {
         let url = '';
         let bgUrl = '';
         if (finalSave?.drawImage) {
-            const file = base64ToPngFile(finalSave?.drawImage, 'chloe-draw-' + new Date().toISOString() + '.png');
+            const file = base64ToPngFile(finalSave?.drawImage, 'fauna-draw-' + new Date().toISOString() + '.png');
             const fileList = await upload.mutateAsync({
                 body: [file]
             })
@@ -61,7 +61,7 @@ const SubmitMessageRoute = () => {
             }
         }
         if (finalSave?.image) {
-            const bgFile = base64ToPngFile(finalSave?.image, 'chloe-draw-bg-' + new Date().toISOString() + '.png');
+            const bgFile = base64ToPngFile(finalSave?.image, 'fauna-draw-bg-' + new Date().toISOString() + '.png');
             const bgFileList = await upload.mutateAsync({
                 body: [bgFile]
             })
@@ -72,7 +72,7 @@ const SubmitMessageRoute = () => {
         submit.mutate({
             body: {
                 type: finalSave?.type || 'Unknown',
-                talent: 'chloe',
+                talent: 'fauna',
                 name: recipient,
                 image: bgUrl,
                 drawImage: url,
@@ -90,7 +90,7 @@ const SubmitMessageRoute = () => {
             image: image,
             drawImage: '',
             type: 'Writing',
-            talent: 'chloe',
+            talent: 'fauna',
         });
     }
     const handleDrawableSave = async (image: string, background: string) => {
@@ -104,13 +104,13 @@ const SubmitMessageRoute = () => {
             image: background,
             drawImage: image,
             type: 'Drawing',
-            talent: 'chloe',
+            talent: 'fauna',
         });
     }
 
     useEffect(() => {
         const loadSave = () => {
-            const savedRTValue = localStorage.getItem(addPrefix('chloe', 'savedNameValue'));
+            const savedRTValue = localStorage.getItem(addPrefix('fauna', 'savedNameValue'));
             if (savedRTValue) {
                 setRecipient(savedRTValue);
             }
@@ -150,7 +150,7 @@ const SubmitMessageRoute = () => {
     }
     return (
         <>
-            <Head title='Send message to chloe' description="Submit message to chloe" />
+            <Head title='Send message to fauna' description="Submit message to fauna" />
             <div>
                 <Dialog open={isSuccessDialogOpen} onOpenChange={
                     (isOpen) => {
@@ -179,7 +179,7 @@ const SubmitMessageRoute = () => {
                                     Submit another message
                                 </Button>
                             </DialogClose>
-                            <Link to="/graduation/chloe" className="text-blue-500">
+                            <Link to="/graduation/fauna" className="text-blue-500">
                                 <Button type="button">
                                     Back to project
                                 </Button>
@@ -256,18 +256,18 @@ const SubmitMessageRoute = () => {
                 <img src={bg} alt="" className='fixed -z-30 w-screen h-screen blur-xl top-0 left-0 scale-125' />
             </div>
             <div>
-                <img src="https://m1r.ai/Owui.jpeg" alt="" className={`fixed -z-30 w-screen h-screen blur-3xl top-0 left-0 duration-700 transition-all scale-110 ${tabValue === 'typing' ? 'opacity-100' : 'opacity-0'}`} />
+                <img src="https://m1r.ai/b6zX.jpg" alt="" className={`fixed -z-30 w-screen h-screen blur-3xl top-0 left-0 duration-700 transition-all ${tabValue === 'typing' ? 'opacity-100' : 'opacity-0'}`} />
             </div>
             <div className="w-full items-center bg-white rounded border p-4 shadow-md relative">
                 <div className='flex justify-start absolute top-0 left-0 rounded-br-md overflow-hidden'>
-                    <div className='bg-[#CDDF90] p-2'>
-                        <Link to="/graduation/fauna/submit" className='flex items-center'>
-                            <img src="https://m1r.ai/O1Iy.png" className='w-8 h-auto mr-2 animate-bounce' />
-                            Looking for Fauna? Click here</Link>
+                    <div className='bg-[#5C2222] p-2'>
+                        <Link to="/graduation/chloe/submit" className='flex items-center text-white hover:text-gray-300'>
+                            <img src="https://m1r.ai/mb83.png" className='w-8 h-auto mr-2 animate-bounce' />
+                            Looking for Chloe? Click here</Link>
                     </div>
                 </div>
                 <div className="text-center text-4xl font-bold py-8">
-                    {tabValue === 'typing' ? 'Type a message' : 'Draw a message'} to Sakamata Chloe
+                    {tabValue === 'typing' ? 'Type a message' : 'Draw a message'} to Ceres Fauna
                 </div>
                 <Tabs defaultValue="typing" value={tabValue} onValueChange={setTabValue}>
                     <div className="flex justify-center">
@@ -289,17 +289,17 @@ const SubmitMessageRoute = () => {
                             <Label htmlFor="recipient" className='text-sm'>You name</Label>
                             <Input id="recipient" placeholder="Enter your name" onChange={(e) => {
                                 setRecipient(e.target.value)
-                                localStorage.setItem(addPrefix('chloe', 'savedNameValue'), e.target.value);
+                                localStorage.setItem(addPrefix('fauna', 'savedNameValue'), e.target.value);
                             }} value={recipient} />
                         </div>
-                        <Writeable prefix='chloe' onSave={handleWriteableSave} />
+                        <Writeable prefix='fauna' onSave={handleWriteableSave} />
                     </TabsContent>
                     <TabsContent value="draw">
                         <div className="mx-auto px-4 py-4 mb-4">
                             <Label htmlFor="recipient" className='text-sm'>You name</Label>
                             <Input id="recipient" placeholder="Enter your name" onChange={(e) => {
                                 setRecipient(e.target.value)
-                                localStorage.setItem(addPrefix('chloe', 'savedNameValue'), e.target.value);
+                                localStorage.setItem(addPrefix('fauna', 'savedNameValue'), e.target.value);
                             }} value={recipient} />
                         </div>
                         <DrawableAdv onSave={handleDrawableSave} onUpdate={setBg} />
@@ -309,10 +309,10 @@ const SubmitMessageRoute = () => {
                             <Label htmlFor="recipient" className='text-sm'>You name</Label>
                             <Input id="recipient" placeholder="Enter your name" onChange={(e) => {
                                 setRecipient(e.target.value)
-                                localStorage.setItem(addPrefix('chloe', 'savedNameValue'), e.target.value);
+                                localStorage.setItem(addPrefix('fauna', 'savedNameValue'), e.target.value);
                             }} value={recipient} />
                         </div>
-                        <Drawable prefix='chloe' onSave={handleDrawableSave} onUpdate={setBg} />
+                        <Drawable prefix='fauna' onSave={handleDrawableSave} onUpdate={setBg} />
                     </TabsContent>
                 </Tabs>
             </div>

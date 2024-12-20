@@ -18,14 +18,14 @@ export const paths = {
                 getHref: () => '/graduation/chloe/submit',
             }
         },
-        fanuna: {
+        fauna: {
             root: {
-                path: '/graduation/fanuna',
-                getHref: () => '/graduation/fanuna',
+                path: '/graduation/fauna',
+                getHref: () => '/graduation/fauna',
             },
             submit: {
-                path: '/graduation/fanuna/submit',
-                getHref: () => '/graduation/fanuna/submit',
+                path: '/graduation/fauna/submit',
+                getHref: () => '/graduation/fauna/submit',
             }
         }
     },

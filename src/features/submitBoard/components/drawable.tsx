@@ -186,7 +186,6 @@ export const Drawable = ({ prefix, onSave, onUpdate }: DrawableProps) => {
                     const base64 = canvas?.getDataURL();
                     if (base64) {
                         onSave(base64, background);
-                        localStorage.setItem(addPrefix(prefix, 'savedDrawing'), '{"lines":[]}');
                     }
                 }}
             >

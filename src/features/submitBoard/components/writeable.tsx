@@ -68,9 +68,8 @@ export const Writeable = ({ prefix, onSave }: WriteableProps) => {
                         }
                     />
                 </div>
-                <Button disabled={rtValue.length > MAX_CHARACTERS} onClick={() => {
+                <Button disabled={rtValue.length > MAX_CHARACTERS || rtValue.length < 1} onClick={() => {
                     onSave(rtValue, image);
-                    localStorage.setItem(addPrefix(prefix, 'savedRTValue'), '');
                 }}>
                     <IoIosSave />
                     Submit
