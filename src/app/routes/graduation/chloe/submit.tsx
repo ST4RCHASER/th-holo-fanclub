@@ -117,7 +117,7 @@ const SubmitMessageRoute = () => {
                 <img src={bg} alt="" className='fixed -z-20 w-screen h-screen blur-3xl top-0 left-0' />
             </div>
             <div>
-                <img src="https://m1r.ai/b6zX.jpg" alt="" className={`fixed -z-10 w-screen h-screen blur-3xl top-0 left-0 duration-700 transition-all ${tabValue === 'typing' ? 'opacity-100' : 'opacity-0'}`} />
+                {/* <img src="https://m1r.ai/b6zX.jpg" alt="" className={`fixed -z-10 w-screen h-screen blur-3xl top-0 left-0 duration-700 transition-all ${tabValue === 'typing' ? 'opacity-100' : 'opacity-0'}`} /> */}
             </div>
             <div className="w-full items-center bg-white rounded">
                 <div className="text-center text-4xl font-bold py-8">
