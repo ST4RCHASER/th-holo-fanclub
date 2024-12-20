@@ -203,7 +203,7 @@ const SubmitMessageRoute = () => {
                                 This is preview of your message before submitting
                             </DialogDescription>
                         </DialogHeader>
-                        <div className="border-8 border-red-300 rounded-md p-4 shadow-xl overflow-auto max-h-[80vh]">
+                        <div className="border-8 border-[#5C2222] rounded-md p-4 shadow-xl overflow-auto max-h-[80vh]">
                             {
                                 finalSave?.name && <div>
                                     <div className="text-xl font-bold">
@@ -246,7 +246,7 @@ const SubmitMessageRoute = () => {
                                     )
                                 }
                                 <SaveAllIcon />
-                                Let's go, it's perfect
+                                Let's go
                             </Button>
                         </DialogFooter>
                     </DialogContent>
