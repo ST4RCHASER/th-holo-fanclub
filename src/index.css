@@ -1,7 +1,91 @@
-@import url("https://fonts.googleapis.com/css2?family=Delius&family=Kosugi+Maru&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Kosugi+Maru&family=IBM+Plex+Sans&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ibm-plex-sans-thin {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.ibm-plex-sans-extralight {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.ibm-plex-sans-light {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ibm-plex-sans-regular {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans-medium {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ibm-plex-sans-semibold {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-sans-bold {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ibm-plex-sans-thin-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.ibm-plex-sans-extralight-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.ibm-plex-sans-light-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ibm-plex-sans-regular-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ibm-plex-sans-medium-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.ibm-plex-sans-semibold-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.ibm-plex-sans-bold-italic {
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 700;
+  font-style: italic;
+}
 
 .kosugi-maru-regular {
   font-family: "Kosugi Maru", serif;
@@ -18,6 +102,55 @@
   font-family: "Delius", "Kosugi Maru", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.stand-1 {
+  background-image: url("https://m1r.ai/uhsn.webp");
+  background-position: 50% 125px;
+  blackground-size: 200%;
+}
+.stand-1.active {
+  background-position: 80% 125px;
+}
+
+.stand-2 {
+  background-image: url("https://m1r.ai/kVrAU.webp");
+  background-position: 50% 100px;
+}
+.stand-2.active {
+  background-position: 20% 100px;
+}
+
+.bg-clear-1 {
+  background-image: url("https://m1r.ai/65QT.webp");
+}
+
+.bg-clear-2 {
+  background-image: url("https://m1r.ai/AqbE.webp");
+}
+
+.bg-1 {
+  background-image: url("https://m1r.ai/65QT.webp");
+  background-position: center 0;
+  scale: 2;
+}
+/* .fauna-bg:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  opacity: 0.5;
+  z-index: -1;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background: url(https://m1r.ai/tfTop.webp);
+}  */
+// top #F9FBEA  to bottom #F8CED9
+.fauna-bg {
+  background: linear-gradient(180deg, #f9fbea 0%, #f8ced9 100%);
 }
 
 .rainbow {

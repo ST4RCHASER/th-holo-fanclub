@@ -179,7 +179,7 @@ const SubmitMessageRoute = () => {
                                     Submit another message
                                 </Button>
                             </DialogClose>
-                            <Link to="/graduation/chloe" className="text-blue-500">
+                            <Link to="/graduation" className="text-blue-500">
                                 <Button type="button">
                                     Back to project
                                 </Button>

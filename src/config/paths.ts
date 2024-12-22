@@ -26,6 +26,10 @@ export const paths = {
             submit: {
                 path: '/graduation/fauna/submit',
                 getHref: () => '/graduation/fauna/submit',
+            },
+            book: {
+                path: '/graduation/fauna/book',
+                getHref: () => '/graduation/fauna/book',
             }
         }
     },

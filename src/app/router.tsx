@@ -10,6 +10,7 @@ import {
     default as AppRoot,
     ErrorBoundary as AppRootErrorBoundary,
 } from './routes/app/root';
+import { DefaultLayout } from '@/components/layouts';
 
 const convert = (queryClient: QueryClient) => (m: any) => {
     const { clientLoader, clientAction, default: Component, ...rest } = m;
@@ -29,29 +30,41 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
         {
             path: paths.graduation.root.path,
+            lazy: () =>
+                import('./routes/graduation').then(convert(queryClient)),
+        },
+        {
+            path: paths.graduation.chloe.root.path,
+            lazy: () =>
+                import('./routes/graduation/chloe').then(convert(queryClient)),
+        },
+        {
+            path: paths.graduation.fauna.root.path,
+            lazy: () =>
+                import('./routes/graduation/fauna').then(convert(queryClient)),
+        },
+        {
+            path: paths.graduation.fauna.book.path,
+            lazy: () =>
+                import('./routes/graduation/fauna/book').then(convert(queryClient)),
+        },
+        {
+            path: paths.graduation.root.path,
             element: (
                 <div className='font-sans'>
-                    <AppRoot />
+                    <DefaultLayout>
+                        <AppRoot />
+                    </DefaultLayout>
                 </div>
             ),
             ErrorBoundary: AppRootErrorBoundary,
             children: [
-                {
-                    path: paths.graduation.chloe.root.path,
-                    lazy: () =>
-                        import('./routes/graduation/chloe').then(convert(queryClient)),
-                },
                 {
                     path: paths.graduation.chloe.submit.path,
                     lazy: () =>
                         import('./routes/graduation/chloe/submit').then(
                             convert(queryClient),
                         ),
-                },
-                {
-                    path: paths.graduation.fauna.root.path,
-                    lazy: () =>
-                        import('./routes/graduation/fauna').then(convert(queryClient)),
                 },
                 {
                     path: paths.graduation.fauna.submit.path,
