@@ -2,6 +2,7 @@ import { DefaultLayout } from '@/components/layouts';
 import { MessageBoardLayout } from '@/components/layouts/messageBoard';
 import { Head } from '@/components/seo';
 import { SubmitData } from '@/types/api';
+import { stringToTextNewLine } from '@/utils/string';
 import { useState } from 'react';
 
 const FaunaMessageRoute = () => {
@@ -15,49 +16,197 @@ const FaunaMessageRoute = () => {
     }
     const [messages, setMessages] = useState<SubmitData[]>([
         {
-            name: 'Holo Fans TH',
-            message: 'Hello, This is a test message',
-            image: 'https://m1r.ai/uhsn.webp',
-            drawImage: 'https://m1r.ai/uhsn.webp',
-            type: 'fan',
-            talent: 'holo'
+            name: 'ZENCENX',
+            message: `Thank you Fauna, good luck for the future. !`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
         },
         {
-            name: 'Holo Fans TH',
-            message: 'Hello, This is a test message',
-            image: 'https://m1r.ai/uhsn.webp',
-            drawImage: 'https://m1r.ai/uhsn.webp',
-            type: 'fan',
-            talent: 'holo'
+            name: 'Kidokcalb',
+            message: `I wish you happiness in your new path~!`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
         },
         {
-            name: 'Holo Fans TH',
-            message: 'Hello, This is a test message',
-            image: 'https://m1r.ai/uhsn.webp',
-            drawImage: 'https://m1r.ai/uhsn.webp',
-            type: 'fan',
-            talent: 'holo'
+            name: 'Khase',
+            message: `Thanks for all precious moments for 4 years. Good luck and I wish you being always happy from now on. Love you, Fauna💚`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
         },
         {
-            name: 'Holo Fans TH',
-            message: 'Hello, This is a test message',
-            image: 'https://m1r.ai/uhsn.webp',
-            drawImage: 'https://m1r.ai/uhsn.webp',
-            type: 'fan',
-            talent: 'holo'
+            name: 'scib',
+            message: `Thank you for everything Fauna💚`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
         },
         {
-            name: 'Holo Fans TH',
-            message: 'Hello, This is a test message',
-            image: 'https://m1r.ai/uhsn.webp',
-            drawImage: 'https://m1r.ai/uhsn.webp',
-            type: 'fan',
-            talent: 'holo'
-        }
+            name: 'Aof',
+            message: `Fauna-san, congratulations on 1 million subs. I wish you success, meet good people, and be happy. The things you gave us, both fun and happiness, will always be in our memories. Good luck.`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        },
+        {
+            name: '- Miru -',
+            message: `Thank you for everything, Fauna. Good luck on your journey. You will always be in our hearts <3.
+
+Please, take care 😄
+
+and Congratulations on your 1 million subscribers !!!`,
+            image: '',
+            drawImage: '',
+            type: 'draw',
+            talent: 'fauna'
+        },
+        {
+            name: 'jjleesuwan',
+            message: `Thank you, Fauna, for all the hard work and dedication you’ve put into everything you’ve done. Your ASMR videos, ASMR live streams, and other live streams have been a source of joy and comfort for me, and I want you to know how much I truly appreciate them. As you move forward to new chapters in life, I wish you all the success, happiness, and fulfillment you deserve. No matter where your journey takes you, you’ll always have my support.`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        },
+        {
+            name: 'SiMurgH',
+            message: `Dear Fauna,
+
+Your ASMR blessed my nights and your Hitman streams lifted my emotion.
+
+It saddens me to see you go but I believe you have a reason.
+
+Thank you for all the good time.
+
+With love,
+SiMurgH`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        },
+        {
+            name: 'LAZYラジー',
+            message: `Konfauna🌿... It's tough to say goodbye but goodbye is just goodbye. However, these moments and memories are precious treasures that will never fade away from my heart.
+
+We definitely miss you. Wish you good luck. Someday, we may meet you again.
+
+And lastly, we really love you Fauna!!💚💚💚
+
+Man I love Fauna... ll`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        },
+        {
+            name: 'Rei48_jp',
+            message: `Dear Fauna,
+
+How are you recently? I hope you will be fine.
+I felt sad when I heard you are leaving.
+But I respect your decision.
+I wish you'll be find something you love to do and make you happy.
+
+Your happiness is my happiness.
+
+Good luck and please take care, Mother Nature.`,
+            image: '',
+            drawImage: '',
+            type: 'draw',
+            talent: 'fauna'
+        },
+        {
+            name: 'Mephisto123',
+            message: `Thank you so much Fauna, for always make my morning gaming session a little less lonely with your yapping session. I might be a new Hololive fan, falling into the rabbit hole 7 months ago, but every moments from your streams will always be one of the funniest moment I've experienced on internet. I wish you luck in whatever you will do in the future. Faunwell!!!`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        },
+        {
+            name: 'Heiliss',
+            message: `We Always Love you.
+Till We Meet Again.
+See You, Fua Fua.`,
+            image: 'https://m1r.ai/xSR4N.png',
+            drawImage: '',
+            type: 'draw',
+            talent: 'fauna'
+        },
+        {
+            name: 'Randneazt',
+            message: `Thank you for everything Fauna!
+I’ll listen to your ASMR in my sleep so I can dream of you.
+Till we meet again, someday, some how
+Faunwell`,
+            image: 'https://m1r.ai/P2KP.png',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        }, {
+            name: 'I’m your sapling',
+            message: `Hello Fauna my beloved
+Over the years,you’ve brought me countless smiles,and inspiration. Thank you for your hard work,your dedication to making everything the best it can be,and your thoughtfulness toward those around you.I love you for being exactly who you are more than anything in the world.In just a few days,I won’t be getting notifications from your channel anymore.It’s so sad,but I wish you all the happiness on your new path. Pls take good care of yourself.I still remember your soft voice,the voice that always keep deeply inside my memories.Thank you Fauna my happiness vitamin.
+Faunwell`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        }, {
+            name: 'CannonConoki',
+            message: `Fauna voice, whether she’s singing or doing ASMR, always makes us feel calm and warm. During the 3D Live on September 17, 2023, I really loved the song Fukashigi no Carte performed by Fauna and Watame. When Fauna sang Vanilla Salt, I felt that she was beautiful and truly radiant.
+
+Fauna's Dungeon is such an amazing idea. I love seeing the Hololive members bonding and enjoying time together.
+
+Thank you for always bringing joy and healing our hearts. You make Hololive an even warmer and more special place. I’m truly happy that Ceres Fauna is part of the Promise Council and Hololive.`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        }, {
+            name: '22comet',
+            message: `Konfauna!
+I did not have a favourite member in HoloEN, but you became a comfort watch for me whenever I wanted to see someone relaxing yet funny.
+I feel lucky to have had the chance to cheer for you in the previous HoloFes and to be one of the first to shout, 'Man, I love Fauna.'
+I wish you the best of luck in your future endeavours and hope to come across you again someday.
+Thank you for the past three years, and Faunwell!`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        }, {
+            name: 'Estel',
+            message: `To Ceres Fauna
+
+Thank you for all of your hard work for this 3 years. It's a really wonderful memories and fully of happiness. I'm really like to continue to watch your performance next year but when i saw the annouced it really sad but i'm understand and it's okay because all good things must come to an end in someday. So I'm really glad that i'm know you watch your stream, listen to your music and asmr. I can say it that i'm really love you!!!
+so please take care of yourself and wish you a happiness.
+
+from one of saplings who lived in thailand
+Estel.`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        }, {
+            name: 'Smailt',
+            message: ``,
+            image: '',
+            drawImage: 'https://m1r.ai/9xhU.png',
+            type: 'draw',
+            talent: 'fauna'
+        },
     ]);
     return (
         <>
-            <Head description="Submit message to chloe" />
+            <Head title='Fauna Graduation' description="Fauna message board" />
             <MessageBoardLayout>
                 <DefaultLayout >
                     <div className='font-sans'>
@@ -68,15 +217,16 @@ const FaunaMessageRoute = () => {
                                         transform: 'scale(-1, 1)'
                                     }} alt="" />
                                 </div>
-                                完でッ町重カヌ平国け女載ヘケ若愛いせ子首主ヌモナツ団断ぱ選8温ヲメホマ表意なず身70必らラぞ昇新ぽ統下ハク相研ラ回間7率クイ変派座同ぜべ。来ルホサム地以紙そつほ間視テユ違松行れ像来コナ海取げ各究うン治問アヌ気成テアニ会入ぽゅ権3広容欲ずろぼ。例キイテト休紙しよ埼政まぴラ井研豊収づに突96経だト来率ずンくっ掲辺政目テ遠吾暖よ。
-
-                                郷モフイ量下むす銃方キ念近辺を古上れ済月モホコナ流2来たかの回統マル原9様ホ分因暮覧ヲリユ試作要ミヤ暮告ラ吉来ちばん視必冤冶きちイ。覧いねんむ心死ルラコイ行防つゅず映推公リ来頁シ足長けぜ顔団マリナソ由歴載づリびよ有都だんゅろ庁索ひな刊人賃ユヱ政夏やぜべ価住必第ヌム残賀ぱち申毎ねとーづ図変ぱひゆし。
-
-                                申ホ者足エミテカ正開カロオ女開オヘニユ無改もよすほ昔修は真予ーつにあ族視へとろぞ遊毎辺しれょ提要ラヒウ合転イメモ編遠ちぞ館備近伐りをお。競そと指94埼コニカ指子責2葉テロ演換レ明真ウ来任ぱどスも縮切うさ公間さぶいせ文製う十審いょ官振リいフの。苦じぼ剛在ず犠事39能1講やスが好手ヲレ影蝶像ノ上表ミ電断保べうほ然員ヤノ当万け融森ちいず豊新違ヘホ査秘ぐ。
-
-                                紀上メウセヲ八界調ラケ周覧半サロ著今ヘ笑検橋ク提全経づ権島ユアル空春よンほ記育メテヱイ般2強きイ。変イょち売会エカリ政京ワエリ格個イそふ復街べをむ夜模ル自必フセム転車ロ報質がかそ展記ク芸数号ふ自疑マレハヤ際者がゅッ害師ケ変最ト降地スルーへ付到ずげんき住彰則廟箱わせ。質けぞつ台座36報岡確位68昇値ぱイ員4一野ごぐ記社コ持来きこわい誉将げてッ組遺マミホ別27成募レやせル。
-
-                                習イ回知めどこふ賀者9冬マ節円ユトエ芋覧よや全洋せ計本どそゅ選編表事て書牧会ッスフ一考どゆげぽ覚証胞ヨ再合ぽるえ彰品カキメク行世砂翼港おば。口ぱだ再字ニ座経ミクコ施転ヒハ政界ぎ使塚観モ鮮6予ぎ分会ウタミス前構い羅女ど品案もづみ筆打忠誉け。3支ヱタケセ最作しねぎ作保ワユイ方違サハ図知ナメ広48集けう画面術2任べひ就変面モリホ連勝リそげが含偏啓懇殖びちだド。
+                                <div className='flex justify-center md:gap-16'>
+                                    <div className='flex justify-center mt-4'>
+                                        <img src="https://m1r.ai/kVrAU.webp" className='w-48' alt="" />
+                                    </div>
+                                    <div className='text-center text-lg my-auto'>
+                                        Thank you for 3 years of effort.
+                                        <br />
+                                        We will always remember every smile and the memories you have given to us.
+                                    </div>
+                                </div>
                                 <div className='text-right'>
                                     <div className='inline'>
                                         — Holo Fans TH
@@ -90,13 +240,13 @@ const FaunaMessageRoute = () => {
                         <div className='p-8 rounded mt-8 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                             {
                                 messages.map((message, index) => (
-                                    <div key={index} className='md:p-4 xl:p-6 duration-300 transition-all' style={{
+                                    <div key={index} className='md:p-4 xl:p-6 duration-300 transition-all hover:rotate-0' style={{
                                         transform: `rotate(${getRandomRotate()}deg)`
                                     }}>
                                         <div className="border-4 border-[#84DFA9] rounded-md p-4 shadow-lg bg-[#FAF5E5]" style={{
                                             borderColor: getRandomColor()
                                         }}>
-                                            <div className='text-2xl font-bold'>
+                                            <div className='text-xl font-bold'>
                                                 {
                                                     message.name
                                                 }
@@ -104,12 +254,16 @@ const FaunaMessageRoute = () => {
                                             <div className='border border-black opacity-30 my-4'></div>
                                             <div>
                                                 {
-                                                    message.message
+                                                    message.message && stringToTextNewLine(message.message)
                                                 }
                                             </div>
-                                            <a href={message.drawImage} target='_blank' rel='noreferrer'>
-                                                <img src={message.image} alt={message.name || message.message} />
-                                            </a>
+                                            {
+                                                (message.drawImage || message.image) && <div className='mt-4'>
+                                                    <a href={message.drawImage || message.image} target='_blank' rel='noreferrer'>
+                                                        <img src={message.drawImage || message.image} alt={message.name || message.message} />
+                                                    </a>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 ))

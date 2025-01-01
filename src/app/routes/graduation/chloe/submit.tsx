@@ -18,6 +18,7 @@ import { CheckCircle2, Loader2, PenBoxIcon, PenIcon, SaveAllIcon, TypeIcon } fro
 import { Link } from '@/components/ui/link';
 import { ImCancelCircle } from 'react-icons/im';
 import { SubmitData } from '@/types/api';
+import { paths } from '@/config/paths';
 
 const SubmitMessageRoute = () => {
     const [tabValue, setTabValue] = useState('typing');
@@ -131,7 +132,7 @@ const SubmitMessageRoute = () => {
     }
 
     const currentDate = new Date();
-    const endDate = new Date('2024-12-31T23:59:59');
+    const endDate = new Date('2024-12-28T16:59:59Z');
     const isClosed = currentDate > endDate;
     if (isClosed) {
         return (
@@ -179,7 +180,7 @@ const SubmitMessageRoute = () => {
                                     Submit another message
                                 </Button>
                             </DialogClose>
-                            <Link to="/graduation" className="text-blue-500">
+                            <Link to={paths.graduation.chloe.root.getHref()} className="text-blue-500">
                                 <Button type="button">
                                     Back to project
                                 </Button>

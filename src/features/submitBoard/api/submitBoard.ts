@@ -20,13 +20,13 @@ export const submitBoard = ({
     return api.post(`https://holofc-2024-eg1.yue-n-2.workers.dev`, body)
 }
 
-type createShirtMutationOptions = {
+type createSubmitMutationOptions = {
     mutationConfig?: MutationConfig<typeof submitBoard>
 }
 
 export const useSubmitBoard = ({
     mutationConfig,
-}: createShirtMutationOptions = {}) => {
+}: createSubmitMutationOptions = {}) => {
     return useMutation({
         ...mutationConfig,
         mutationKey: ['submitBoard'],

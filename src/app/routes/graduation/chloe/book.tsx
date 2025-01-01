@@ -137,7 +137,7 @@ const FlipbookViewer: React.FC = () => {
     }, [book]);
 
     useEffect(() => {
-        loadPDF('https://m1r.ai/NOms.pdf', setBook);
+        loadPDF('https://m1r.ai/klx55.pdf', setBook);
         // Keyboard event
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'ArrowRight') viewer?.flip_forward();
@@ -163,9 +163,16 @@ const FlipbookViewer: React.FC = () => {
 
     return (
         <div className='overflow-hidden'>
-            <Head title='Fauna Friendship' description="Fauna Friendship" />
+            <Head title='Chloe Friendship' description="Chloe Friendship" />
+            {/* <div className='fixed top-24 right-0 p-8 rounded bg-black text-white z-50 cursor-pointer' onClick={() => {
+                //Alert to paste url
+                const url = prompt('Enter the PDF URL');
+                if (url) loadPDF(url, setBook);
+            }}>
+                Load
+            </div> */}
             <div className='top-0 z-50'>
-                <Navbar theme='fauna' />
+                <Navbar theme='chloe' />
             </div>
             <div className='w-screen h-screen flex bg-transparent fixed z-20'>
                 <div onClick={handlePrev} className='w-1/2 h-full text-white flex justify-center items-center cursor-pointer'>

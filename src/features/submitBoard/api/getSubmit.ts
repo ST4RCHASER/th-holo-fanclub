@@ -15,11 +15,11 @@ export const getSubmitQueryOptions = () => {
     })
 }
 
-type UseFrabicTypeOptions = {
+type UseSubmitTypeOptions = {
     queryConfig?: QueryConfig<typeof getSubmitQueryOptions>
 }
 
-export const useSubmit = ({ queryConfig }: UseFrabicTypeOptions = {}) => {
+export const useSubmit = ({ queryConfig }: UseSubmitTypeOptions = {}) => {
     return useQuery({
         ...getSubmitQueryOptions(),
         ...queryConfig,

@@ -10,9 +10,9 @@ const SubmitMessageRoute = () => {
     const [currentHover, setCurrentHover] = useState<number>(-1);
     return (
         <>
-            <Head description="Submit message to chloe" />
+            <Head title='Chloe & Fauna Graduation' description="Chloe&Fauna Graduation landing" />
             <div className='h-screen w-screen bg-black lg:hidden'>
-                <Link to={paths.graduation.fauna.submit.getHref()}>
+                <Link to={paths.graduation.fauna.root.getHref()}>
                     <div className='relative w-full h-1/2 overflow-hidden ibm-plex-sans-bold font-bold cursor-pointer'>
                         <div className='h-full w-full bg-clear-1 bg-cover bg-no-repeat bg-center absolute blur-sm opacity-50 scale-110'>
                         </div>
@@ -34,7 +34,7 @@ const SubmitMessageRoute = () => {
                         </div>
                     </div>
                 </Link>
-                <Link to={paths.graduation.chloe.submit.getHref()}>
+                <Link to={paths.graduation.chloe.root.getHref()}>
                     <div className='relative w-full h-1/2 overflow-hidden ibm-plex-sans-bold font-bold'>
                         <div className='h-full w-full bg-clear-2 bg-cover bg-no-repeat bg-center absolute blur-sm opacity-50 scale-110'>
                         </div>
@@ -68,7 +68,7 @@ const SubmitMessageRoute = () => {
                     className={`group relative flex-1 bg-left bg-cover transition-all duration-1000 ease-in-out hover:flex-[2] hover:opacity-100 overflow-hidden ${!isHovered ? 'opacity-80' : 'opacity-30'}`}
                     onMouseEnter={() => setCurrentHover(0)}
                 >
-                    <Link to={paths.graduation.fauna.submit.getHref()}>
+                    <Link to={paths.graduation.fauna.root.getHref()}>
                         <div className={`uppercase absolute z-20 text-white text-xl ibm-plex-sans-bold font-bold  transition-all duration-1000  top-1/2 right-[15%] transform -translate-y-1/2 opacity-0 ${currentHover === 0 ? 'opacity-100' : ''}`}>
                             <div className='border-8 border-white p-4 backdrop-blur-md xl:backdrop-blur-none'>
                                 <div className='text-left'>
@@ -91,7 +91,7 @@ const SubmitMessageRoute = () => {
                 <div className={`group relative flex-1 bg-right bg-cover transition-all duration-1000 ease-in-out hover:flex-[2] hover:opacity-100 overflow-hidden ${!isHovered ? 'opacity-80' : 'opacity-30'}`}
                     onMouseEnter={() => setCurrentHover(1)}
                 >
-                    <Link to={paths.graduation.chloe.submit.getHref()}>
+                    <Link to={paths.graduation.chloe.root.getHref()}>
                         <div className={`uppercase absolute z-20 text-white text-xl ibm-plex-sans-bold font-bold  transition-all duration-1000  top-1/2 left-[15%] transform -translate-y-1/2 opacity-0 ${currentHover === 1 ? 'opacity-100' : ''}`}>
                             <div className='border-8 border-white p-4 backdrop-blur-md xl:backdrop-blur-none'>
                                 <div className='text-right'>

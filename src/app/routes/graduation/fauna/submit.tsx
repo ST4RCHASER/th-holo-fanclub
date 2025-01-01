@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { Drawable } from '@/features/submitBoard/components/drawable';
 import { Writeable } from '@/features/submitBoard/components/writeable';
-import { addPrefix } from '@/utils/string';
+import { addPrefix, stringToTextNewLine } from '@/utils/string';
 import { Input } from '@/components/ui/input';
 import { useSubmitBoard } from '@/features/submitBoard/api/submitBoard';
 import { useUploadImages } from '@/lib/uploadImage';
@@ -18,6 +18,7 @@ import { CheckCircle2, Loader2, PenBoxIcon, PenIcon, SaveAllIcon, TypeIcon } fro
 import { Link } from '@/components/ui/link';
 import { ImCancelCircle } from 'react-icons/im';
 import { SubmitData } from '@/types/api';
+import { paths } from '@/config/paths';
 
 const SubmitMessageRoute = () => {
     const [tabValue, setTabValue] = useState('typing');
@@ -120,18 +121,9 @@ const SubmitMessageRoute = () => {
         }, 100)
     }, []);
 
-    const stringToTextNewLine = (text: string) => {
-        return text.split('\n').map((str, index) => {
-            return (
-                <div key={index} className='break-all'>
-                    {str}
-                </div>
-            )
-        })
-    }
-
     const currentDate = new Date();
-    const endDate = new Date('2024-12-31T23:59:59');
+    // 2024-12-28T23:59:59 UTC+7
+    const endDate = new Date('2024-12-28T16:59:59Z');
     const isClosed = currentDate > endDate;
     if (isClosed) {
         return (
@@ -179,7 +171,7 @@ const SubmitMessageRoute = () => {
                                     Submit another message
                                 </Button>
                             </DialogClose>
-                            <Link to="/graduation" className="text-blue-500">
+                            <Link to={paths.graduation.fauna.root.getHref()} className="text-blue-500">
                                 <Button type="button">
                                     Back to project
                                 </Button>

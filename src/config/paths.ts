@@ -8,6 +8,10 @@ export const paths = {
             path: '/graduation',
             getHref: () => '/graduation',
         },
+        chloe_fauna: {
+            path: '/graduation/chloe-fauna',
+            getHref: () => '/graduation/chloe-fauna',
+        },
         chloe: {
             root: {
                 path: '/graduation/chloe',
@@ -16,6 +20,14 @@ export const paths = {
             submit: {
                 path: '/graduation/chloe/submit',
                 getHref: () => '/graduation/chloe/submit',
+            },
+            book: {
+                path: '/graduation/chloe/book',
+                getHref: () => '/graduation/chloe/book',
+            },
+            credits: {
+                path: '/graduation/chloe/credits',
+                getHref: () => '/graduation/chloe/credits',
             }
         },
         fauna: {
@@ -30,6 +42,10 @@ export const paths = {
             book: {
                 path: '/graduation/fauna/book',
                 getHref: () => '/graduation/fauna/book',
+            },
+            credits: {
+                path: '/graduation/fauna/credits',
+                getHref: () => '/graduation/fauna/credits',
             }
         }
     },
