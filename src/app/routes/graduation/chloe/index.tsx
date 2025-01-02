@@ -132,6 +132,17 @@ SiMurgH`,
             type: 'write',
             talent: 'fauna'
         }, {
+            name: '22comet',
+            message: `ばっくばっくばく～ん!
+Thank you for giving me so many great memories over the past three years. You are one of my favourite members and my oshi in HoloX.
+I might not have had many chances to watch your streams due to language barriers, but I love your voice, design, and personality. I am a big fan of your songs!
+Whatever you choose to do in the future, I hope you succeed, and perhaps we will see you again someday.
+ありがとう!`,
+            image: '',
+            drawImage: '',
+            type: 'write',
+            talent: 'fauna'
+        }, {
             name: 'CannonConoki',
             message: `The first time I was truly impressed by you was when I saw the Marine Senchou illustration you posted on Twitter. It was during a time when you were challenging yourself, yet you always make an effort to prioritize those around you whether it’s the Hololive members or your fans.
 The letter you wrote to Lui during the 3D Live on June 21, 2022, deeply moved me. I still think that it was an incredibly precious thing that you did for Lui.

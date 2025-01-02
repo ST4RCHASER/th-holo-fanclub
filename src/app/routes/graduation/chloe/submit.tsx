@@ -143,7 +143,7 @@ const SubmitMessageRoute = () => {
                         Thanks for participating in the project. We are no longer accepting new messages.
                     </div>
                     <div>
-                        <a href="/graduation/c&f-portal" className="text-blue-500 text-lg">Back to message board</a>
+                        <Link to={paths.graduation.chloe.root.getHref()} className="text-blue-500 text-lg">Back to message board</Link>
                     </div>
                 </div>
             </div>
