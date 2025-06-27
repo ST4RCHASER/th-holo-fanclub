@@ -104,7 +104,7 @@ const LandingRoute = () => {
                 <div className='content slide-in w-full mx-auto text-center'>
                     <section id='about' className='pb-12'>
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
-                            <div className='absolute z-10 w-full h-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>ABOUT</div>
+                            <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>ABOUT</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
                                 弊社について
                             </div>
@@ -120,7 +120,7 @@ const LandingRoute = () => {
                     </section>
                     <section id='projects' className='pb-12'>
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
-                            <div className='absolute z-10 w-full h-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>ACTIVE PROJECT</div>
+                            <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>ACTIVE PROJECT</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
                                 現在のプロジェクト
                             </div>
@@ -131,7 +131,7 @@ const LandingRoute = () => {
                                     <div className='text-center flex flex-col h-fit'>
                                         {
                                             FILTERED_ACTIVE_PROJECTS.map((project, index) => (
-                                                <a href={project.url} target="_blank" key={index} className='h-24 w-fit hover:scale-105 mb-4' >
+                                                <a href={project.url} target="_blank" key={index} className='h-24 w-fit hover:scale-105 mb-4 duration-300' >
                                                     <img src={project.imageUrl} alt="" className='w-full h-full' />
                                                 </a>
                                             ))
@@ -147,7 +147,7 @@ const LandingRoute = () => {
                     </section>
                     <section id='past-projects' className='pb-12'>
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
-                            <div className='absolute z-10 w-full h-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>OUR PAST PROJECT</div>
+                            <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>OUR PAST PROJECT</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
                                 原作プロジェクト
                             </div>
@@ -191,7 +191,7 @@ const LandingRoute = () => {
                     </section>
                     <section id='sns' className='pb-12'>
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
-                            <div className='absolute z-10 w-full h-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>SNS</div>
+                            <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>SNS</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
                                 エスエヌエス
                             </div>
