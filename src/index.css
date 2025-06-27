@@ -223,3 +223,35 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+.blur-in {
+  opacity: 0;
+  animation: scale-in 1s 0.6s ease-out forwards;
+}
+.slide-in {
+  opacity: 0;
+  animation: content-in 1s 0.3s ease-out forwards;
+}
+@keyframes scale-in {
+  0% {
+    transform: scale(1.05);
+    filter: blur(0.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes content-in {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
