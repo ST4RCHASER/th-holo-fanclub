@@ -24,10 +24,31 @@ const convert = (queryClient: QueryClient) => (m: any) => {
 
 export const createAppRouter = (queryClient: QueryClient) =>
     createBrowserRouter([
+        // Use in qr code
         {
-            path: '/gra-cf',
+            path: paths.YEAR_2025.graduation.chloe_fauna.short,
             loader: () => {
-                return redirect(paths.graduation.chloe_fauna.getHref());
+                return redirect(paths.YEAR_2025.graduation.chloe_fauna.getHref());
+            }
+        },
+        // Becuse facebook has already post the message with this old link
+        {
+            path: paths.YEAR_2025.graduation.chloe.submit.old,
+            loader: () => {
+                return redirect(paths.YEAR_2025.graduation.chloe.submit.path);
+            }
+        },
+        {
+            path: paths.YEAR_2025.graduation.fauna.submit.old,
+            loader: () => {
+                return redirect(paths.YEAR_2025.graduation.fauna.submit.path);
+            }
+        },
+        // Remove 2025 to dictionary page
+        {
+            path: paths.YEAR_2025.graduation.root.path,
+            loader: () => {
+                return redirect(paths.graduation.root.path);
             }
         },
         // End of redirects
@@ -37,47 +58,44 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
         {
             path: paths.graduation.root.path,
-            lazy: () =>
-                import('./routes/graduation').then(convert(queryClient)),
-        },
-
-        {
-            path: paths.graduation.chloe_fauna.path,
-            lazy: () =>
-                import('./routes/graduation').then(convert(queryClient)),
+            lazy: () => import('./routes/graduation').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.chloe.root.path,
+            path: paths.YEAR_2025.graduation.chloe_fauna.path,
             lazy: () =>
-                import('./routes/graduation/chloe').then(convert(queryClient)),
+                import('./routes/2025/graduation').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.fauna.credits.path,
+            path: paths.YEAR_2025.graduation.chloe.root.path,
             lazy: () =>
-                import('./routes/graduation/fauna/credits').then(convert(queryClient)),
+                import('./routes/2025/graduation/chloe').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.chloe.credits.path,
+            path: paths.YEAR_2025.graduation.fauna.credits.path,
             lazy: () =>
-                import('./routes/graduation/chloe/credits').then(convert(queryClient)),
+                import('./routes/2025/graduation/fauna/credits').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.chloe.book.path,
+            path: paths.YEAR_2025.graduation.chloe.credits.path,
             lazy: () =>
-                import('./routes/graduation/chloe/book').then(convert(queryClient)),
+                import('./routes/2025/graduation/chloe/credits').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.fauna.root.path,
+            path: paths.YEAR_2025.graduation.chloe.book.path,
             lazy: () =>
-                import('./routes/graduation/fauna').then(convert(queryClient)),
+                import('./routes/2025/graduation/chloe/book').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.fauna.book.path,
+            path: paths.YEAR_2025.graduation.fauna.root.path,
             lazy: () =>
-                import('./routes/graduation/fauna/book').then(convert(queryClient)),
+                import('./routes/2025/graduation/fauna').then(convert(queryClient)),
         },
         {
-            path: paths.graduation.root.path,
+            path: paths.YEAR_2025.graduation.fauna.book.path,
+            lazy: () =>
+                import('./routes/2025/graduation/fauna/book').then(convert(queryClient)),
+        },
+        {
             element: (
                 <div className='font-sans'>
                     <DefaultLayout>
@@ -88,16 +106,16 @@ export const createAppRouter = (queryClient: QueryClient) =>
             ErrorBoundary: AppRootErrorBoundary,
             children: [
                 {
-                    path: paths.graduation.chloe.submit.path,
+                    path: paths.YEAR_2025.graduation.chloe.submit.path,
                     lazy: () =>
-                        import('./routes/graduation/chloe/submit').then(
+                        import('./routes/2025/graduation/chloe/submit').then(
                             convert(queryClient),
                         ),
                 },
                 {
-                    path: paths.graduation.fauna.submit.path,
+                    path: paths.YEAR_2025.graduation.fauna.submit.path,
                     lazy: () =>
-                        import('./routes/graduation/fauna/submit').then(
+                        import('./routes/2025/graduation/fauna/submit').then(
                             convert(queryClient),
                         ),
                 },

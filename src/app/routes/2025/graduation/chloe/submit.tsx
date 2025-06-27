@@ -143,7 +143,7 @@ const SubmitMessageRoute = () => {
                         Thanks for participating in the project. We are no longer accepting new messages.
                     </div>
                     <div>
-                        <Link to={paths.graduation.chloe.root.getHref()} className="text-blue-500 text-lg">Back to message board</Link>
+                        <Link to={paths.YEAR_2025.graduation.chloe.root.getHref()} className="text-blue-500 text-lg">Back to message board</Link>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@ const SubmitMessageRoute = () => {
                                     Submit another message
                                 </Button>
                             </DialogClose>
-                            <Link to={paths.graduation.chloe.root.getHref()} className="text-blue-500">
+                            <Link to={paths.YEAR_2025.graduation.chloe.root.getHref()} className="text-blue-500">
                                 <Button type="button">
                                     Back to project
                                 </Button>

@@ -7,47 +7,58 @@ export const paths = {
         root: {
             path: '/graduation',
             getHref: () => '/graduation',
-        },
-        chloe_fauna: {
-            path: '/graduation/chloe-fauna',
-            getHref: () => '/graduation/chloe-fauna',
-        },
-        chloe: {
-            root: {
-                path: '/graduation/chloe',
-                getHref: () => '/graduation/chloe',
-            },
-            submit: {
-                path: '/graduation/chloe/submit',
-                getHref: () => '/graduation/chloe/submit',
-            },
-            book: {
-                path: '/graduation/chloe/book',
-                getHref: () => '/graduation/chloe/book',
-            },
-            credits: {
-                path: '/graduation/chloe/credits',
-                getHref: () => '/graduation/chloe/credits',
-            }
-        },
-        fauna: {
-            root: {
-                path: '/graduation/fauna',
-                getHref: () => '/graduation/fauna',
-            },
-            submit: {
-                path: '/graduation/fauna/submit',
-                getHref: () => '/graduation/fauna/submit',
-            },
-            book: {
-                path: '/graduation/fauna/book',
-                getHref: () => '/graduation/fauna/book',
-            },
-            credits: {
-                path: '/graduation/fauna/credits',
-                getHref: () => '/graduation/fauna/credits',
-            }
         }
+    },
+    YEAR_2025: {
+        graduation: {
+            root: {
+                path: '/2025/graduation',
+                getHref: () => '/2025/graduation',
+            },
+            chloe_fauna: {
+                short: '/gra-cf',
+                path: '/2025/graduation/chloe-fauna',
+                getHref: () => '/2025/graduation/chloe-fauna',
+            },
+            chloe: {
+                root: {
+                    path: '/2025/graduation/chloe',
+                    getHref: () => '/2025/graduation/chloe',
+                },
+                submit: {
+                    path: '/2025/graduation/chloe/submit',
+                    old: '/graduation/chloe/submit',
+                    getHref: () => '/2025/graduation/chloe/submit',
+                },
+                book: {
+                    path: '/2025/graduation/chloe/book',
+                    getHref: () => '/2025/graduation/chloe/book',
+                },
+                credits: {
+                    path: '/2025/graduation/chloe/credits',
+                    getHref: () => '/2025/graduation/chloe/credits',
+                }
+            },
+            fauna: {
+                root: {
+                    path: '/2025/graduation/fauna',
+                    getHref: () => '/2025/graduation/fauna',
+                },
+                submit: {
+                    path: '/2025/graduation/fauna/submit',
+                    old: '/graduation/chloe/submit',
+                    getHref: () => '/2025/graduation/fauna/submit',
+                },
+                book: {
+                    path: '/2025/graduation/fauna/book',
+                    getHref: () => '/2025/graduation/fauna/book',
+                },
+                credits: {
+                    path: '/2025/graduation/fauna/credits',
+                    getHref: () => '/2025/graduation/fauna/credits',
+                }
+            }
+        },
     },
     auth: {
         register: {
@@ -61,7 +72,6 @@ export const paths = {
                 `/auth/login${redirectTo ? `?redirectTo=${encodeURIComponent(redirectTo)}` : ''}`,
         },
     },
-
     app: {
         root: {
             path: '/app',

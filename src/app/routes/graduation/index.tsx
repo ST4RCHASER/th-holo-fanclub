@@ -1,120 +1,128 @@
-import { Head } from '@/components/seo';
-import { Button } from '@/components/ui/button';
 import { Link } from '@/components/ui/link';
 import { paths } from '@/config/paths';
-import { useState } from 'react';
-import { MdOutlineArrowCircleRight } from "react-icons/md";
 
-const SubmitMessageRoute = () => {
-    const [isHovered, setIsHovered] = useState(false);
-    const [currentHover, setCurrentHover] = useState<number>(-1);
+interface Graduation {
+    name: string;
+    year: string;
+    link: string;
+    image: string;
+    color: string;
+    icon: string;
+    border: string;
+    bg: string;
+    text: string;
+    yearText: string;
+    borderCard: string;
+}
+
+const recentGraduations: Graduation[] = [
+    // Example for future use:
+    // {
+    //     name: 'Example Vtuber',
+    //     year: '2026',
+    //     link: '/graduation/example',
+    //     image: 'https://example.com/image.png',
+    //     color: 'blue',
+    //     icon: '⭐',
+    //     border: 'border-blue-200',
+    //     bg: 'bg-blue-50 hover:bg-blue-100',
+    //     text: 'text-blue-700',
+    //     yearText: 'text-blue-500',
+    //     borderCard: 'border-blue-100',
+    // },
+];
+
+const pastGraduations: Graduation[] = [
+    {
+        name: 'Ceres Fauna',
+        year: '2025',
+        link: paths.YEAR_2025.graduation.fauna.root.getHref(),
+        image: 'https://m1r.ai/O1Iy.png',
+        color: 'green',
+        icon: '🌿',
+        border: 'border-green-200',
+        bg: 'bg-green-50 hover:bg-green-100',
+        text: 'text-green-700',
+        yearText: 'text-green-500',
+        borderCard: 'border-green-100',
+    },
+    {
+        name: 'Chloe Sakamata',
+        year: '2025',
+        link: paths.YEAR_2025.graduation.chloe.root.getHref(),
+        image: 'https://m1r.ai/mb83.png',
+        color: 'pink',
+        icon: '🦈',
+        border: 'border-pink-200',
+        bg: 'bg-pink-50 hover:bg-pink-100',
+        text: 'text-pink-700',
+        yearText: 'text-pink-500',
+        borderCard: 'border-pink-100',
+    },
+];
+
+const GraduationIndex = () => {
     return (
-        <>
-            <Head title='Chloe & Fauna Graduation' description="Chloe&Fauna Graduation landing" />
-            <div className='h-screen w-screen bg-black lg:hidden'>
-                <Link to={paths.graduation.fauna.root.getHref()}>
-                    <div className='relative w-full h-1/2 overflow-hidden ibm-plex-sans-bold font-bold cursor-pointer'>
-                        <div className='h-full w-full bg-clear-1 bg-cover bg-no-repeat bg-center absolute blur-sm opacity-50 scale-110'>
-                        </div>
-                        <div className='absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl'>
-                            <div className='flex justify-center'>
-                                <img src="https://m1r.ai/O1Iy.png" alt="Ceres Fauna" className='w-28' />
-                            </div>
-                            <div className='uppercase text-center mt-2'>
-                                <div>
-                                    Ceres Fauna
-                                </div>
-                                <Button
-                                    className='mt-2'
-                                    variant="secondary"
-                                >
-                                    <MdOutlineArrowCircleRight className='h-8 w-auto' /> Enter
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-                <Link to={paths.graduation.chloe.root.getHref()}>
-                    <div className='relative w-full h-1/2 overflow-hidden ibm-plex-sans-bold font-bold'>
-                        <div className='h-full w-full bg-clear-2 bg-cover bg-no-repeat bg-center absolute blur-sm opacity-50 scale-110'>
-                        </div>
-                        <div className='absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl'>
-                            <div className='flex justify-center'>
-                                <img src="https://m1r.ai/mb83.png" alt="Ceres Fauna" className='w-24' />
-                            </div>
-                            <div className='uppercase text-center mt-2'>
-                                <div>
-                                    Chloe Sakamata
-                                </div>
-                                <Button
-                                    className='mt-2'
-                                    variant="secondary"
-                                >
-                                    <MdOutlineArrowCircleRight className='h-8 w-auto' /> Enter
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
+        <div className="min-h-screen flex flex-col items-center font-semibold bg-gradient-to-br from-pink-50 via-blue-50 to-yellow-50 py-6 px-2 sm:py-12 sm:px-0">
+            <div className="flex flex-col items-center mb-4 sm:mb-6">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f31f.png" alt="Sparkle" className="w-12 h-12 sm:w-16 sm:h-16 mb-2 animate-bounce" />
+                <h1 className="text-2xl sm:text-4xl mb-2 font-extrabold text-pink-400 drop-shadow-sm tracking-tight text-center">Graduation Index</h1>
+                <div className="text-base sm:text-lg text-gray-500 font-normal flex items-center gap-2 text-center">
+                    <span>✨ A place to remember our beloved vtubers ✨</span>
+                </div>
             </div>
-            <div className="lg:flex h-screen w-screen bg-black hidden relative cursor-pointer"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => {
-                    setIsHovered(false)
-                    setCurrentHover(-1)
-                }}
-            >
-                <div
-                    className={`group relative flex-1 bg-left bg-cover transition-all duration-1000 ease-in-out hover:flex-[2] hover:opacity-100 overflow-hidden ${!isHovered ? 'opacity-80' : 'opacity-30'}`}
-                    onMouseEnter={() => setCurrentHover(0)}
-                >
-                    <Link to={paths.graduation.fauna.root.getHref()}>
-                        <div className={`uppercase absolute z-20 text-white text-xl ibm-plex-sans-bold font-bold  transition-all duration-1000  top-1/2 right-[15%] transform -translate-y-1/2 opacity-0 ${currentHover === 0 ? 'opacity-100' : ''}`}>
-                            <div className='border-8 border-white p-4 backdrop-blur-md xl:backdrop-blur-none'>
-                                <div className='text-left'>
-                                    Ceres
+            <div className="w-full max-w-2xl mb-8 sm:mb-12">
+                <h2 className="text-lg sm:text-2xl mb-3 sm:mb-4 text-blue-400 font-bold flex items-center gap-2">
+                    <span>Recent Graduations</span>
+                </h2>
+                {recentGraduations.length === 0 ? (
+                    <div className="p-4 sm:p-8 rounded-2xl bg-white/70 text-gray-400 text-center shadow-md border border-pink-100">
+                        No recent graduations.
+                    </div>
+                ) : (
+                    <div className="flex flex-col gap-4 sm:gap-6">
+                        {recentGraduations.map((g) => (
+                            <Link to={g.link} className={`transition group`} key={g.name}>
+                                <div className={`flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl ${g.bg} shadow-lg border ${g.borderCard} group-hover:scale-105 group-hover:shadow-2xl transition-transform`}>
+                                    <img src={g.image} alt={g.name} className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 ${g.border} shadow`} />
+                                    <div className="flex flex-col items-center sm:items-start">
+                                        <span className={`text-lg sm:text-xl font-bold ${g.text} flex items-center gap-1`}>{g.name}</span>
+                                        <span className={`text-xs sm:text-sm ${g.yearText}`}>{g.year}</span>
+                                    </div>
+                                    <span className="ml-0 sm:ml-auto text-xl sm:text-2xl animate-pulse">{g.icon}</span>
                                 </div>
-                                <div className='text-right text-6xl'>
-                                    Fauna
+                            </Link>
+                        ))}
+                    </div>
+                )}
+            </div>
+            <div className="w-full max-w-2xl">
+                <h2 className="text-lg sm:text-2xl mb-3 sm:mb-4 text-pink-400 font-bold flex items-center gap-2">
+                    <span>Past Graduations</span>
+                </h2>
+                {pastGraduations.length === 0 ? (
+                    <div className="p-4 sm:p-8 rounded-2xl bg-white/70 text-gray-400 text-center shadow-md border border-pink-100">
+                        No past graduations.
+                    </div>
+                ) : (
+                    <div className="flex flex-col gap-4 sm:gap-6">
+                        {pastGraduations.map((g) => (
+                            <Link to={g.link} className={`transition group`} key={g.name}>
+                                <div className={`flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl ${g.bg} shadow-lg border ${g.borderCard} group-hover:scale-105 group-hover:shadow-2xl transition-transform`}>
+                                    <img src={g.image} alt={g.name} className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 ${g.border} shadow`} />
+                                    <div className="flex flex-col items-center sm:items-start">
+                                        <span className={`text-lg sm:text-xl font-bold ${g.text} flex items-center gap-1`}>{g.name}</span>
+                                        <span className={`text-xs sm:text-sm ${g.yearText}`}>{g.year}</span>
+                                    </div>
+                                    <span className="ml-0 sm:ml-auto text-xl sm:text-2xl animate-pulse">{g.icon}</span>
                                 </div>
-                            </div>
-                            <div className='mt-2 flex justify-center'>
-                                <MdOutlineArrowCircleRight className='h-12 w-auto' />
-                            </div>
-                        </div>
-                        <div className={`w-full h-full absolute z-10 bg-no-repeat scale-150 transition-all duration-1000 bg-contain stand-2 ${currentHover === 0 ? ' active' : ''}`} >
-                        </div>
-                        <div className={`w-full h-full transition-all duration-1000 bg-contain bg-1 ${currentHover === 0 ? 'blur' : ''} ${currentHover === 0 ? 'opacity-80' : ''}`}>
-                        </div>
-                    </Link>
-                </div>
-                <div className={`group relative flex-1 bg-right bg-cover transition-all duration-1000 ease-in-out hover:flex-[2] hover:opacity-100 overflow-hidden ${!isHovered ? 'opacity-80' : 'opacity-30'}`}
-                    onMouseEnter={() => setCurrentHover(1)}
-                >
-                    <Link to={paths.graduation.chloe.root.getHref()}>
-                        <div className={`uppercase absolute z-20 text-white text-xl ibm-plex-sans-bold font-bold  transition-all duration-1000  top-1/2 left-[15%] transform -translate-y-1/2 opacity-0 ${currentHover === 1 ? 'opacity-100' : ''}`}>
-                            <div className='border-8 border-white p-4 backdrop-blur-md xl:backdrop-blur-none'>
-                                <div className='text-right'>
-                                    Sakamata
-                                </div>
-                                <div className='text-left text-6xl'>
-                                    Chloe
-                                </div>
-                            </div>
-                            <div className='mt-2 flex justify-center'>
-                                <MdOutlineArrowCircleRight className='h-12 w-auto' />
-                            </div>
-                        </div>
-                        <div className={`w-full h-full absolute z-10 bg-no-repeat scale-150 transition-all duration-1000 bg-contain stand-1 ${currentHover === 1 ? 'active' : ''}`} />
-                        <div className={`w-full h-full transition-all duration-1000 ${currentHover === 1 ? 'blur' : ''} ${currentHover === 1 ? 'opacity-80' : ''}`}
-                            style={{ backgroundImage: 'url("https://m1r.ai/AqbE.webp")', backgroundPosition: 'center 200px', backgroundSize: 'contain', scale: '2', }}
-                        >
-                        </div>
-                    </Link>
-                </div>
-            </div >
-        </>
+                            </Link>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div>
     );
 };
 
-export default SubmitMessageRoute;
+export default GraduationIndex;
