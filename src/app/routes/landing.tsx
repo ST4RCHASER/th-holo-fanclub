@@ -1,10 +1,54 @@
 import { Head } from '@/components/seo';
-import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
 
+const ACTIVE_PROJECTS = [
+    {
+        title: "miComet 5th Anniversary",
+        date: "2025-08-05",
+        imageUrl: "https://m1r.ai/Hz6w.webp",
+        url: "https://www.facebook.com/holofansTH/posts/pfbid02LyKdbxcSxUCHTYQjWjtB4Aekyn3J1q2op8udkiHDPjuX1pkoUi9P8wbhWZJkNjtxl"
+    }
+]
+const FILTERED_ACTIVE_PROJECTS = ACTIVE_PROJECTS.filter(project => new Date(project.date) > new Date())
+const PAST_PROJECTS = [
+    {
+        title: "Aqua iro summer ⭐",
+        date: "2024-08-28",
+        imageUrl: "https://m1r.ai/tvB2.webp",
+        url: "https://archive-th.holofan.club/2024/aqua-iro-summer"
+    },
+    {
+        title: "Fauna & Chloe Friendship book",
+        date: "2024-12-22",
+        imageUrl: "https://m1r.ai/NiIwT.webp",
+        url: "https://archive-th.holofan.club/2024/fauna-chloe-friendship-book"
+    },
+    {
+        title: "Calliope Birthday 2025",
+        date: "2025-03-04",
+        imageUrl: "https://m1r.ai/mrC0.webp",
+        url: "https://archive-th.holofan.club/2025/calliope-birthday"
+    },
+    {
+        title: "Biboo Birthday 2025",
+        date: "2025-04-14",
+        imageUrl: "https://m1r.ai/Pu5ak.jpg",
+        url: "https://archive-th.holofan.club/2025/biboo-birthday"
+    },
+    {
+        title: "Watame Birthday 2025",
+        date: "2025-04-14",
+        imageUrl: "https://m1r.ai/bwxm.png",
+        url: "https://archive-th.holofan.club/2025/watame-birthday"
+    }
+]
 
 const LandingRoute = () => {
+    const getRandomRotate = () => {
+        const rotate = Math.floor(Math.random() * 10) - 3.5;
+        return rotate;
+    }
     return (
         <>
             <Head description="th.Holofan.club" />
@@ -81,9 +125,25 @@ const LandingRoute = () => {
                                 現在のプロジェクト
                             </div>
                         </div>
-                        <div className='text-base md:text-xl px-2 md:px-0'>
-                            - No any active project -
-                        </div>
+                        {
+                            FILTERED_ACTIVE_PROJECTS?.length ? (
+                                <div className='flex justify-center'>
+                                    <div className='text-center flex flex-col h-fit'>
+                                        {
+                                            FILTERED_ACTIVE_PROJECTS.map((project, index) => (
+                                                <a href={project.url} target="_blank" key={index} className='h-24 w-fit hover:scale-105 mb-4' >
+                                                    <img src={project.imageUrl} alt="" className='w-full h-full' />
+                                                </a>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className='text-base md:text-xl px-2 md:px-0'>
+                                    - No any active project -
+                                </div>
+                            )
+                        }
                     </section>
                     <section id='past-projects' className='pb-12'>
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
@@ -99,15 +159,26 @@ const LandingRoute = () => {
                                 }),
                             ]}>
                                 <CarouselContent className="-ml-1">
-                                    {Array.from({ length: 10 }).map((_, index) => (
-                                        <CarouselItem key={index} className="pl-1 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
-                                            <div className="p-1">
-                                                <Card>
-                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                        <span className="text-lg md:text-2xl font-semibold">{index + 1}</span>
-                                                    </CardContent>
-                                                </Card>
+                                    {PAST_PROJECTS.map((_, index) => (
+                                        <CarouselItem key={index} className="pl-1 basis-4/5 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                                            <div className='hover:scale-105 transition-all duration-300 w-full h-full' style={{
+                                                transform: `rotate(${getRandomRotate()}deg)`
+                                            }}>
+                                                <a className="p-4 w-full h-full" href={_.url} target="_blank">
+                                                    <div className='shadow-lg rounded-lg overflow-hidden mx-8'>
+                                                        <img src={_.imageUrl} alt={_.title} className='aspect-square object-cover' />
+                                                        <div className='flex justify-between px-4 w-full h-full'>
+                                                            <a className='py-4' href={_.url} target="_blank">
+                                                                {_.title}
+                                                            </a>
+                                                            <div className='text-xs h-full mt-8'>
+                                                                {_.date}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
+
                                         </CarouselItem>
                                     ))}
                                 </CarouselContent>
@@ -139,7 +210,7 @@ const LandingRoute = () => {
                         </div>
                     </section>
                 </div>
-                <footer className='mt-32 w-screen h-64'>
+                <footer className='mt-32 w-screen h-72'>
                     <div className='w-full h-full bg-[#4BCCF9] border-[#FF7B7B] border-t-[32px] text-white text-xs md:text-base'>
                         <div className='flex flex-col md:flex-row px-2 md:px-4 py-4'>
                             <div className='px-2 md:px-4 mx-auto w-full md:w-1/2'>
@@ -151,17 +222,31 @@ const LandingRoute = () => {
                                 <div className='mt-2 md:mt-4 text-xs text-right'>© {new Date().getFullYear()} HOLO FANS TH </div>
                             </div>
                             <div className='w-full md:w-1/2 mt-4 md:mt-6'>
-                                Social Media
-                                <hr />
-                                <div className='flex gap-2 md:gap-4'>
-                                    <div className='mt-2 ml-2'>
-                                        <a href="https://www.facebook.com/holofansTH/" target="_blank" rel="noopener noreferrer" className='text-sm'>Facebook</a>
+                                <div>
+                                    Social Media
+                                    <hr />
+                                    <div className='flex gap-2 md:gap-4'>
+                                        <div className='mt-2 ml-2'>
+                                            <a href="https://www.facebook.com/holofansTH/" target="_blank" rel="noopener noreferrer" className='text-sm'>Facebook</a>
+                                        </div>
+                                        <div className='mt-2 ml-2'>
+                                            <a href="https://x.com/HoloFansTh" target="_blank" rel="noopener noreferrer" className='text-sm'>X (Twitter)</a>
+                                        </div>
+                                        <div className='mt-2 ml-2'>
+                                            <a href="https://x.com/HoloFansTh" target="_blank" rel="noopener noreferrer" className='text-sm'>Discord</a>
+                                        </div>
                                     </div>
-                                    <div className='mt-2 ml-2'>
-                                        <a href="https://x.com/HoloFansTh" target="_blank" rel="noopener noreferrer" className='text-sm'>X (Twitter)</a>
-                                    </div>
-                                    <div className='mt-2 ml-2'>
-                                        <a href="https://x.com/HoloFansTh" target="_blank" rel="noopener noreferrer" className='text-sm'>Discord</a>
+                                </div>
+                                <div className='mt-4'>
+                                    Others
+                                    <hr />
+                                    <div className='flex gap-2 md:gap-4'>
+                                        <div className='mt-2 ml-2'>
+                                            <a href="https://www.facebook.com/holofansTH/" target="_blank" rel="noopener noreferrer" className='text-sm'>Archives</a>
+                                        </div>
+                                        <div className='mt-2 ml-2'>
+                                            <a href="https://www.facebook.com/holofansTH/" target="_blank" rel="noopener noreferrer" className='text-sm'>Gallery</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
