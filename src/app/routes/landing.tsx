@@ -1,6 +1,7 @@
 import { Head } from '@/components/seo';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
+import { useState, useEffect, useRef } from 'react';
 
 const ACTIVE_PROJECTS = [
     {
@@ -45,6 +46,22 @@ const PAST_PROJECTS = [
 ]
 
 const LandingRoute = () => {
+    const [isProjectMenuOpen, setIsProjectMenuOpen] = useState(false);
+    const projectMenuRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (projectMenuRef.current && !projectMenuRef.current.contains(event.target as Node)) {
+                setIsProjectMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     const getRandomRotate = () => {
         const rotate = Math.floor(Math.random() * 10) - 3.5;
         return rotate;
@@ -88,8 +105,40 @@ const LandingRoute = () => {
                 <div className='flex gap-3'>
                     <a href="#home" className='text-pink-400 font-bold text-xs'>HOME</a>
                     <a href="#about" className='text-pink-400 font-bold text-xs'>ABOUT</a>
-                    <a href="#projects" className='text-pink-400 font-bold text-xs'>ACTIVE PROJECT</a>
-                    <a href="#past-projects" className='text-pink-400 font-bold text-xs'>PAST PROJECTS</a>
+                    <div className='relative' ref={projectMenuRef}>
+                        <button
+                            onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
+                            className='text-pink-400 font-bold text-xs flex items-center gap-1'
+                        >
+                            PROJECTS
+                            <svg
+                                className={`w-3 h-3 transition-transform ${isProjectMenuOpen ? 'rotate-180' : ''}`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        {isProjectMenuOpen && (
+                            <div className='absolute top-full left-0 mt-1 bg-white/95 backdrop-blur-md rounded-lg shadow-lg border border-pink-200 min-w-[140px]'>
+                                <a
+                                    href="#projects"
+                                    className='block px-3 py-2 text-pink-400 font-bold text-xs hover:bg-pink-50 rounded-t-lg'
+                                    onClick={() => setIsProjectMenuOpen(false)}
+                                >
+                                    ACTIVE PROJECT
+                                </a>
+                                <a
+                                    href="#past-projects"
+                                    className='block px-3 py-2 text-pink-400 font-bold text-xs hover:bg-pink-50 rounded-b-lg'
+                                    onClick={() => setIsProjectMenuOpen(false)}
+                                >
+                                    PAST PROJECT
+                                </a>
+                            </div>
+                        )}
+                    </div>
                     <a href="#sns" className='text-pink-400 font-bold text-xs'>SNS</a>
                 </div>
             </div>
@@ -99,6 +148,7 @@ const LandingRoute = () => {
                 </div>
                 <div className='relative h-64 w-full slide-in'>
                     <div className='bg-[#4BCCF9] border-b-[#FF7B7B] border-b-[32px] w-1/2 h-full absolute left-0 origin-bottom-right [transform:skewY(10deg)_translateX(0.5px)_translateZ(0)]' />
+                    <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center z-30 text-3xl font-bold text-white md:hidden'>Holo Fans TH</div>
                     <div className='bg-[#4BCCF9] border-b-[#FF7B7B] border-b-[32px] w-1/2 h-full absolute right-0 origin-bottom-left [transform:skewY(-10deg)]' />
                 </div>
                 <div className='content slide-in w-full mx-auto text-center'>
@@ -131,7 +181,7 @@ const LandingRoute = () => {
                                     <div className='text-center flex flex-col h-fit'>
                                         {
                                             FILTERED_ACTIVE_PROJECTS.map((project, index) => (
-                                                <a href={project.url} target="_blank" key={index} className='h-24 w-fit hover:scale-105 mb-4 duration-300' >
+                                                <a href={project.url} target="_blank" key={index} className='h-auto max-w-72 hover:scale-105 mb-4 duration-300' >
                                                     <img src={project.imageUrl} alt="" className='w-full h-full' />
                                                 </a>
                                             ))
@@ -182,7 +232,7 @@ const LandingRoute = () => {
                                         </CarouselItem>
                                     ))}
                                 </CarouselContent>
-                                <div className='absolute z-20  h-24 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-between container'>
+                                <div className='hidden absolute z-20  h-24 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-between container'>
                                     <CarouselPrevious />
                                     <CarouselNext />
                                 </div>
