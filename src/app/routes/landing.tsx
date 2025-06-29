@@ -13,43 +13,61 @@ const ACTIVE_PROJECTS = [
 ]
 const FILTERED_ACTIVE_PROJECTS = ACTIVE_PROJECTS.filter(project => new Date(project.date) > new Date())
 const PAST_PROJECTS = [
-    {
-        title: "Aqua iro summer ⭐",
-        date: "2024-08-28",
-        imageUrl: "https://m1r.ai/tvB2.webp",
-        url: "https://archive-th.holofan.club/2024/aqua-iro-summer"
-    },
-    {
-        title: "Fauna & Chloe Friendship book",
-        date: "2024-12-22",
-        imageUrl: "https://m1r.ai/NiIwT.webp",
-        url: "https://archive-th.holofan.club/2024/fauna-chloe-friendship-book"
-    },
-    {
-        title: "Calliope Birthday 2025",
-        date: "2025-03-04",
-        imageUrl: "https://m1r.ai/mrC0.webp",
-        url: "https://archive-th.holofan.club/2025/calliope-birthday"
-    },
-    {
-        title: "Biboo Birthday 2025",
-        date: "2025-04-14",
-        imageUrl: "https://m1r.ai/Pu5ak.jpg",
-        url: "https://archive-th.holofan.club/2025/biboo-birthday"
-    },
-    {
-        title: "Watame Birthday 2025",
-        date: "2025-04-14",
-        imageUrl: "https://m1r.ai/bwxm.png",
-        url: "https://archive-th.holofan.club/2025/watame-birthday"
-    }
+    // {
+    //     title: "Aqua iro summer ⭐",
+    //     date: "2024-08-28",
+    //     imageUrl: "https://m1r.ai/tvB2.webp",
+    //     url: "https://archive-th.holofan.club/2024/aqua-iro-summer"
+    // },
+    // {
+    //     title: "Fauna & Chloe Friendship book",
+    //     date: "2024-12-22",
+    //     imageUrl: "https://m1r.ai/NiIwT.webp",
+    //     url: "https://archive-th.holofan.club/2024/fauna-chloe-friendship-book"
+    // },
+    // {
+    //     title: "Calliope Birthday 2025",
+    //     date: "2025-03-04",
+    //     imageUrl: "https://m1r.ai/mrC0.webp",
+    //     url: "https://archive-th.holofan.club/2025/calliope-birthday"
+    // },
+    // {
+    //     title: "Biboo Birthday 2025",
+    //     date: "2025-04-14",
+    //     imageUrl: "https://m1r.ai/Pu5ak.jpg",
+    //     url: "https://archive-th.holofan.club/2025/biboo-birthday"
+    // },
+    // {
+    //     title: "Watame Birthday 2025",
+    //     date: "2025-04-14",
+    //     imageUrl: "https://m1r.ai/bwxm.png",
+    //     url: "https://archive-th.holofan.club/2025/watame-birthday"
+    // }
 ]
 
 const LandingRoute = () => {
     const [isProjectMenuOpen, setIsProjectMenuOpen] = useState(false);
     const projectMenuRef = useRef<HTMLDivElement>(null);
+    const [projects, setProjects] = useState([])
 
     useEffect(() => {
+        fetch('https://blog-th.holofan.club/api/posts.json').then(x => {
+            x.json().then(y => {
+                console.log(y)
+                if (y?.data && y?.success) {
+                    const projects = y.data.posts?.filter(z => z.tags.includes('activities')).map(z => {
+                        return {
+                            title: z.title,
+                            date: new Date(z.pubDate)?.toISOString().split('T')[0],
+                            imageUrl: z.image?.url,
+                            url: `https://blog-th.holofan.club/posts/${z.id}`
+                        }
+                    })
+                    setProjects(projects)
+                }
+            })
+        })
+
         const handleClickOutside = (event: MouseEvent) => {
             if (projectMenuRef.current && !projectMenuRef.current.contains(event.target as Node)) {
                 setIsProjectMenuOpen(false);
@@ -209,7 +227,7 @@ const LandingRoute = () => {
                                 }),
                             ]}>
                                 <CarouselContent className="-ml-1">
-                                    {PAST_PROJECTS.map((_, index) => (
+                                    {projects.map((_, index) => (
                                         <CarouselItem key={index} className="pl-1 basis-4/5 sm:basis-1/2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                                             <div className='hover:scale-105 transition-all duration-300 w-full h-full' style={{
                                                 transform: `rotate(${getRandomRotate()}deg)`
