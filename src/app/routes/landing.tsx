@@ -114,6 +114,9 @@ const LandingRoute = () => {
                         <li className='mt-2 md:mt-4'>
                             <a href="#sns" className='text-pink-300 font-bold drop-shadow-[0_0_8px_white] text-xs md:text-base'>SNS</a>
                         </li>
+                        <li className='mt-2 md:mt-4'>
+                            <a href="https://blog-th.holofan.club" target='_blank' className='text-pink-300 font-bold drop-shadow-[0_0_8px_white] text-xs md:text-base'>ARCHIVE</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -310,10 +313,7 @@ const LandingRoute = () => {
                                     <hr />
                                     <div className='flex gap-2 md:gap-4'>
                                         <div className='mt-2 ml-2'>
-                                            <a href="https://www.facebook.com/holofansTH/" target="_blank" rel="noopener noreferrer" className='text-sm'>Archives</a>
-                                        </div>
-                                        <div className='mt-2 ml-2'>
-                                            <a href="https://www.facebook.com/holofansTH/" target="_blank" rel="noopener noreferrer" className='text-sm'>Gallery</a>
+                                            <a href="https://blog-th.holofan.club" target="_blank" rel="noopener noreferrer" className='text-sm'>Archives</a>
                                         </div>
                                     </div>
                                 </div>
