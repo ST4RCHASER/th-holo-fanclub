@@ -285,6 +285,12 @@ const LandingRoute = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M1199.61 0L741.68 553.66L1167.96 1227H803.13L524.13 797.09L191.47 1227H0.39L484.09 624.97L75.04 0H448.7L698.41 389.6L1000.13 0zM1132.13 1107.13L366.13 119.87H267.87L1032.13 1107.13H1132.13Z" /></svg>
                                     X (Twitter)
                                 </a>
+                                <a href="https://www.youtube.com/@HoloFansTH_Ch" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-2 md:px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold shadow transition text-xs md:text-base">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    Youtube Channel
+                                </a>
                             </div>
                         </div>
                     </section>
@@ -310,6 +316,9 @@ const LandingRoute = () => {
                                         </div>
                                         <div className='mt-2 ml-2'>
                                             <a href="https://x.com/HoloFansTh" target="_blank" rel="noopener noreferrer" className='text-sm'>X (Twitter)</a>
+                                        </div>
+                                        <div className='mt-2 ml-2'>
+                                            <a href="https://www.youtube.com/@HoloFansTH_Ch" target="_blank" rel="noopener noreferrer" className='text-sm'>Youtube</a>
                                         </div>
                                         <div className='mt-2 ml-2'>
                                             <a href="https://x.com/HoloFansTh" target="_blank" rel="noopener noreferrer" className='text-sm'>Discord</a>
