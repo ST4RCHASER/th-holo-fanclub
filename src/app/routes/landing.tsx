@@ -7,8 +7,16 @@ const ACTIVE_PROJECTS = [
     {
         title: "miComet 5th Anniversary",
         date: "2025-08-05",
-        imageUrl: "https://m1r.ai/Hz6w.webp",
-        url: "https://www.facebook.com/holofansTH/posts/pfbid02LyKdbxcSxUCHTYQjWjtB4Aekyn3J1q2op8udkiHDPjuX1pkoUi9P8wbhWZJkNjtxl"
+        imageUrl: "https://m1r.ai/9ycj.webp",
+        url: "https://www.facebook.com/holofansTH/posts/pfbid02LyKdbxcSxUCHTYQjWjtB4Aekyn3J1q2op8udkiHDPjuX1pkoUi9P8wbhWZJkNjtxl",
+        className: ''
+    },
+    {
+        title: "miComet 5th Anniversary",
+        date: "2025-09-18",
+        imageUrl: "https://m1r.ai/pX70e.png",
+        url: "https://www.facebook.com/permalink.php?story_fbid=pfbid02Wf6w6qN8tPE44dCnLmCYHqGTPmMiL8wn8Z7YEkQdRwPFxebbnuYECoxGkMUHMRFZl&id=100082701176404",
+        className: ''
     }
 ]
 const FILTERED_ACTIVE_PROJECTS = ACTIVE_PROJECTS.filter(project => new Date(project.date) > new Date())
@@ -169,7 +177,7 @@ const LandingRoute = () => {
                 </div>
                 <div className='relative h-64 w-full slide-in'>
                     <div className='bg-[#4BCCF9] border-b-[#FF7B7B] border-b-[32px] w-1/2 h-full absolute left-0 origin-bottom-right [transform:skewY(10deg)_translateX(0.5px)_translateZ(0)]' />
-                    <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center z-30 text-3xl font-bold text-white md:hidden'>Holo Fans TH</div>
+                    <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center z-30 text-3xl font-bold text-white md:hidden'>HoloFans TH</div>
                     <div className='bg-[#4BCCF9] border-b-[#FF7B7B] border-b-[32px] w-1/2 h-full absolute right-0 origin-bottom-left [transform:skewY(-10deg)]' />
                 </div>
                 <div className='content slide-in w-full mx-auto text-center'>
@@ -177,7 +185,7 @@ const LandingRoute = () => {
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
                             <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>ABOUT</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
-                                弊社について
+                                私たちについて
                             </div>
                         </div>
                         <div className='text-base md:text-xl px-2 md:px-0'>
@@ -193,7 +201,7 @@ const LandingRoute = () => {
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
                             <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>ACTIVE PROJECT</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
-                                現在のプロジェクト
+                                進行中のプロジェクト
                             </div>
                         </div>
                         {
@@ -202,7 +210,7 @@ const LandingRoute = () => {
                                     <div className='text-center flex flex-col h-fit'>
                                         {
                                             FILTERED_ACTIVE_PROJECTS.map((project, index) => (
-                                                <a href={project.url} target="_blank" key={index} className='h-auto max-w-72 hover:scale-105 mb-4 duration-300' >
+                                                <a href={project.url} target="_blank" key={index} className={`h-auto max-w-96 hover:scale-105 mb-8 duration-300 ${project?.className ? ` ${project.className}` : ''}`} >
                                                     <img src={project.imageUrl} alt="" className='w-full h-full' />
                                                 </a>
                                             ))
@@ -220,7 +228,7 @@ const LandingRoute = () => {
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
                             <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>OUR PAST PROJECT</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
-                                原作プロジェクト
+                                過去のプロジェクト
                             </div>
                         </div>
                         <div>
@@ -264,7 +272,7 @@ const LandingRoute = () => {
                         <div className='relative py-6 md:py-12 w-fit mx-auto'>
                             <div className='absolute z-10 w-full flex flex-col items-center mt-4 md:mt-12 font-black text-xl md:text-3xl drop-shadow-[0_0_8px_white]'>SNS</div>
                             <div className='text-4xl md:text-8xl mt-2 md:mt-4 opacity-40 font-black bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_white]'>
-                                エスエヌエス
+                                SNS
                             </div>
                         </div>
                         <div>
@@ -287,10 +295,10 @@ const LandingRoute = () => {
                             <div className='px-2 md:px-4 mx-auto w-full md:w-1/2'>
                                 <div className='flex'>
                                     <img src="/web-app-manifest-192x192.png" alt="" className='w-12 h-12 md:w-24 md:h-24 bg-white p-2 rounded-full' />
-                                    <div className='text-lg md:text-2xl font-bold mt-4 md:mt-8 ml-2 md:ml-4'>HOLO FANS TH</div>
+                                    <div className='text-lg md:text-2xl font-bold mt-4 md:mt-8 ml-2 md:ml-4'>HOLOFANS TH</div>
                                 </div>
                                 <div className='mt-2 md:mt-4'>This fan website is not affiliated with hololive and COVER Corp</div>
-                                <div className='mt-2 md:mt-4 text-xs text-right'>© {new Date().getFullYear()} HOLO FANS TH </div>
+                                <div className='mt-2 md:mt-4 text-xs text-right'>© {new Date().getFullYear()} HOLOFANS TH </div>
                             </div>
                             <div className='w-full md:w-1/2 mt-4 md:mt-6'>
                                 <div>

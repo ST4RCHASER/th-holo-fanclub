@@ -230,7 +230,7 @@ We really love you, Chloe!! ❤❤❤`,
                                 </div>
                                 <div className='text-right'>
                                     <div className='inline'>
-                                        — Holo Fans TH
+                                        — HoloFans TH
                                     </div>
                                 </div>
                             </div>
