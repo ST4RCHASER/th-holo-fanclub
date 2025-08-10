@@ -5,14 +5,14 @@ import { useState, useEffect, useRef } from 'react';
 
 const ACTIVE_PROJECTS = [
     {
-        title: "miComet 5th Anniversary",
-        date: "2025-08-05",
-        imageUrl: "https://m1r.ai/9ycj.webp",
-        url: "https://www.facebook.com/holofansTH/posts/pfbid02LyKdbxcSxUCHTYQjWjtB4Aekyn3J1q2op8udkiHDPjuX1pkoUi9P8wbhWZJkNjtxl",
+        title: "Aki Rosenthal 1 Million Youtube Subscribers Bilboard Project",
+        date: "2025-09-18",
+        imageUrl: "https://m1r.ai/sQpW2.png",
+        url: "https://ko-fi.com/wwrosethai",
         className: ''
     },
     {
-        title: "miComet 5th Anniversary",
+        title: "Takanashi Kiara 5th Anniversary Bilboard Project",
         date: "2025-09-18",
         imageUrl: "https://m1r.ai/pX70e.png",
         url: "https://www.facebook.com/permalink.php?story_fbid=pfbid02Wf6w6qN8tPE44dCnLmCYHqGTPmMiL8wn8Z7YEkQdRwPFxebbnuYECoxGkMUHMRFZl&id=100082701176404",
